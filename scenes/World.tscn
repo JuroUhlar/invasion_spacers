@@ -1,0 +1,33 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://scenes/Invader.tscn" type="PackedScene" id=1]
+
+[node name="World" type="Node2D"]
+
+[node name="Invader" parent="." instance=ExtResource( 1 )]
+position = Vector2( 84.1826, 517.711 )
+shoot_key = "z_key"
+
+[node name="Invader2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 221.689, 516.483 )
+shoot_key = "x_key"
+
+[node name="Invader3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 353.058, 521.394 )
+shoot_key = "c_key"
+
+[node name="Invader4" parent="." instance=ExtResource( 1 )]
+position = Vector2( 483.197, 522.622 )
+shoot_key = "v_key"
+
+[node name="Invader5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 609.654, 527.533 )
+shoot_key = "b_key"
+
+[node name="Invader6" parent="." instance=ExtResource( 1 )]
+position = Vector2( 739.795, 527.533 )
+shoot_key = "n_key"
+
+[node name="Invader7" parent="." instance=ExtResource( 1 )]
+position = Vector2( 895.717, 525.077 )
+shoot_key = "m_key"
