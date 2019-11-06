@@ -9,7 +9,6 @@ onready var gun_timer = get_node("gun_timer")
 func _ready():
 	pass # Replace with function body.
 
-
 func _process(delta):
 	if Input.is_action_pressed(shoot_key):
 		if gun_timer.time_left == 0:

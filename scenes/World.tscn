@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://scenes/Invader.tscn" type="PackedScene" id=1]
+[ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=2]
 
 [node name="World" type="Node2D"]
 
@@ -31,3 +32,6 @@ shoot_key = "n_key"
 [node name="Invader7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 895.717, 525.077 )
 shoot_key = "m_key"
+
+[node name="Enemy" parent="." instance=ExtResource( 2 )]
+position = Vector2( 478.545, 204.832 )
