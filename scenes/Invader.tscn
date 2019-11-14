@@ -1,27 +1,39 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://scripts/invader.gd" type="Script" id=1]
 [ext_resource path="res://scenes/player_bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Spaceship_01_GREEN.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Spaceship_01_GREEN.png" type="Texture" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
-radius = 13.4617
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 5.91835
+height = 17.9248
+
+[sub_resource type="CapsuleShape2D" id=2]
+radius = 12.5255
+height = 94.8043
 
 [node name="Invader" type="Area2D"]
-position = Vector2( 106.943, 525.689 )
+position = Vector2( 107.498, 524.58 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
 bullet = ExtResource( 2 )
+explosion = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 5 )
+rotation = 1.5708
+shape = SubResource( 2 )
 
 [node name="bullet_container" type="Node" parent="."]
 
@@ -31,3 +43,4 @@ position = Vector2( 0, -65 )
 [node name="gun_timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+[connection signal="area_entered" from="." to="." method="_on_Invader_area_entered"]
