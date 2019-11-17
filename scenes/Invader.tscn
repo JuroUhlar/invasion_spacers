@@ -30,11 +30,6 @@ texture = ExtResource( 4 )
 scale = Vector2( 3, 3 )
 shape = SubResource( 1 )
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 5 )
-rotation = 1.5708
-shape = SubResource( 2 )
-
 [node name="bullet_container" type="Node" parent="."]
 
 [node name="muzzle" type="Position2D" parent="."]
@@ -43,4 +38,9 @@ position = Vector2( 0, -65 )
 [node name="gun_timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 5 )
+rotation = 1.5708
+shape = SubResource( 2 )
 [connection signal="area_entered" from="." to="." method="_on_Invader_area_entered"]

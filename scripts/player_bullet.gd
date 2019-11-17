@@ -2,7 +2,7 @@ extends Area2D
 
 var velocityV2 = Vector2()
 export var speed = 400
-
+export (PackedScene) var explosion
 
 func _ready():
 	velocityV2.y = -speed
@@ -16,14 +16,14 @@ func start_at(pos):
 	position = pos
 	velocityV2.y = -speed
 
-
-
-
 func _on_lifetime_timeout():
 	queue_free()
 
-
 func _on_player_bullet_area_entered(area):
 	if area.get_groups().has("enemies"):
+		var expl = explosion.instance()
+		get_parent().add_child(expl)
+		expl.position = position
+		expl.play()
 		queue_free()
-		print(area.name)
+
