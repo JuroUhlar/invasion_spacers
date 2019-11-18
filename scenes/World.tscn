@@ -8,7 +8,7 @@
 [node name="Invader1" parent="." instance=ExtResource( 1 )]
 position = Vector2( 89.9105, 380.242 )
 shoot_key = "z_key"
-backupInvader = NodePath("../Invader1B")
+backupInvaderPath = NodePath("../Invader1B")
 
 [node name="Invader1B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 89.9105, 513.415 )
@@ -18,7 +18,7 @@ active = false
 [node name="Invader2" parent="." instance=ExtResource( 1 )]
 position = Vector2( 227.417, 379.014 )
 shoot_key = "x_key"
-backupInvader = NodePath("../Invader2B")
+backupInvaderPath = NodePath("../Invader2B")
 
 [node name="Invader2B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 227.417, 512.187 )
@@ -28,7 +28,7 @@ active = false
 [node name="Invader3" parent="." instance=ExtResource( 1 )]
 position = Vector2( 358.786, 383.925 )
 shoot_key = "c_key"
-backupInvader = NodePath("../Invader3B")
+backupInvaderPath = NodePath("../Invader3B")
 
 [node name="Invader3B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 358.786, 517.098 )
@@ -38,7 +38,7 @@ active = false
 [node name="Invader4" parent="." instance=ExtResource( 1 )]
 position = Vector2( 489.925, 385.153 )
 shoot_key = "v_key"
-backupInvader = NodePath("../Invader4B")
+backupInvaderPath = NodePath("../Invader4B")
 
 [node name="Invader4B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 491.153, 519.554 )
@@ -48,7 +48,7 @@ active = false
 [node name="Invader5" parent="." instance=ExtResource( 1 )]
 position = Vector2( 615.382, 390.064 )
 shoot_key = "b_key"
-backupInvader = NodePath("../Invader5B")
+backupInvaderPath = NodePath("../Invader5B")
 
 [node name="Invader5B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 615.382, 524.237 )
@@ -58,7 +58,7 @@ active = false
 [node name="Invader6" parent="." instance=ExtResource( 1 )]
 position = Vector2( 745.523, 390.064 )
 shoot_key = "n_key"
-backupInvader = NodePath("../Invader6B")
+backupInvaderPath = NodePath("../Invader6B")
 
 [node name="Invader6B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 745.523, 523.237 )
@@ -68,7 +68,7 @@ active = false
 [node name="Invader7" parent="." instance=ExtResource( 1 )]
 position = Vector2( 901.445, 387.608 )
 shoot_key = "m_key"
-backupInvader = NodePath("../Invader7B")
+backupInvaderPath = NodePath("../Invader7B")
 
 [node name="Invader7B" parent="." instance=ExtResource( 1 )]
 position = Vector2( 901.445, 520.781 )

@@ -6,12 +6,12 @@
 [ext_resource path="res://assets/Spaceship_01_GREEN.png" type="Texture" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 5.91835
-height = 17.9248
+radius = 5.6535
+height = 7.52636
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 12.5255
-height = 94.8043
+height = 52.0025
 
 [node name="Invader" type="Area2D"]
 position = Vector2( 107.498, 524.58 )
@@ -23,7 +23,7 @@ bullet = ExtResource( 2 )
 explosion = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
-scale = Vector2( 0.3, 0.3 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -33,7 +33,7 @@ shape = SubResource( 1 )
 [node name="bullet_container" type="Node" parent="."]
 
 [node name="muzzle" type="Position2D" parent="."]
-position = Vector2( 0, -65 )
+position = Vector2( 0, -50.99 )
 
 [node name="gun_timer" type="Timer" parent="."]
 wait_time = 0.5
@@ -43,4 +43,7 @@ one_shot = true
 position = Vector2( 0, 5 )
 rotation = 1.5708
 shape = SubResource( 2 )
+
+[node name="Tween" type="Tween" parent="."]
 [connection signal="area_entered" from="." to="." method="_on_Invader_area_entered"]
+[connection signal="tween_completed" from="Tween" to="." method="_on_Tween_tween_completed"]
