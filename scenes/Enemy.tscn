@@ -1,23 +1,42 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/Enemy.gd" type="Script" id=1]
 [ext_resource path="res://scenes/enemy_bullet.tscn" type="PackedScene" id=2]
-[ext_resource path="res://assets/Spaceship_04_RED.png" type="Texture" id=3]
+[ext_resource path="res://scenes/Explosion.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/Spaceship_04_RED.png" type="Texture" id=4]
+[ext_resource path="res://scripts/enemy_health_bar.gd" type="Script" id=5]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 42.9773
 
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.87451, 0.121569, 0.121569, 1 )
+border_color = Color( 1, 0.0156863, 0.0156863, 1 )
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id=3]
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
 [node name="Enemy" type="Area2D"]
+position = Vector2( 177.562, 74.9345 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+health = 20
 bullet = ExtResource( 2 )
+explosion = ExtResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="."]
 rotation = 3.14159
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -29,4 +48,20 @@ position = Vector2( 0, 60 )
 
 [node name="gun_timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="health_bar" type="ProgressBar" parent="."]
+show_behind_parent = true
+margin_left = -59.8552
+margin_top = -61.8818
+margin_right = 60.1448
+margin_bottom = -47.8818
+custom_styles/fg = SubResource( 2 )
+custom_styles/bg = SubResource( 3 )
+value = 87.1
+script = ExtResource( 5 )
+
+[node name="death_timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 [connection signal="area_entered" from="." to="." method="_on_Enemy_area_entered"]
+[connection signal="timeout" from="death_timer" to="." method="_on_death_timer_timeout"]

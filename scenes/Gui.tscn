@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/enemy_health_bar.gd" type="Script" id=1]
+
+[sub_resource type="Theme" id=1]
+
+[node name="Control" type="Control"]
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+margin_left = 481.325
+margin_top = 20.9592
+margin_right = 646.325
+margin_bottom = 34.9592
+theme = SubResource( 1 )
+value = 42.27
+script = ExtResource( 1 )
