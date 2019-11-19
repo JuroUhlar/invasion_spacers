@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/Fonts/TitleFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://assets/Fonts/NormalFont.tres" type="DynamicFont" id=2]
+[ext_resource path="res://scenes/Buttons.tscn" type="PackedScene" id=3]
+
+[node name="TitleScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Menu" type="VBoxContainer" parent="."]
+margin_left = 61.0
+margin_top = 56.0
+margin_right = 962.432
+margin_bottom = 544.0
+custom_constants/separation = 60
+alignment = 1
+
+[node name="Title" type="Label" parent="Menu"]
+margin_top = 47.0
+margin_right = 901.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 1 )
+text = "Invasion Spacers"
+align = 1
+
+[node name="Description" type="Label" parent="Menu"]
+margin_top = 152.0
+margin_right = 901.0
+margin_bottom = 245.0
+custom_fonts/font = ExtResource( 2 )
+text = "So it's space invaders, but you control the invaders.
+
+USe the bottom row of your keyboard
+ (z,x,c,v,b,n,m) to Fire."
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
+margin_top = 305.0
+margin_right = 901.0
+margin_bottom = 440.0
+alignment = 1
+
+[node name="Buttons" parent="Menu/HBoxContainer" instance=ExtResource( 3 )]

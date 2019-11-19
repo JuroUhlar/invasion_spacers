@@ -47,6 +47,7 @@ position = Vector2( 0, 60 )
 [node name="bullet_container" type="Node" parent="."]
 
 [node name="gun_timer" type="Timer" parent="."]
+wait_time = 0.15
 one_shot = true
 
 [node name="health_bar" type="ProgressBar" parent="."]

@@ -12,6 +12,7 @@ onready var gun_timer = get_node("gun_timer")
 onready var tweenNode = get_node("Tween")
 
 var tweenValues
+signal invader_dead
 
 func _ready():
 	add_to_group("invaders")
@@ -49,6 +50,7 @@ func die():
 	get_parent().add_child(expl)
 	expl.position = position
 	expl.play()
+	emit_signal("invader_dead")
 	if (backupInvaderPath != null):
 		var backup = get_node(backupInvaderPath)
 		if (backup): 

@@ -10,11 +10,14 @@ var screen_size
 export (PackedScene) var bullet
 export (PackedScene) var explosion
 
+signal enemy_dead
+
 onready var bullet_container = get_node("bullet_container")
 onready var gun_timer = get_node("gun_timer")
 onready var health_bar = get_node("health_bar")
 onready var death_timer = get_node("death_timer")
 onready var sprite = get_node("Sprite")
+onready var collision_shape = get_node("CollisionShape2D");
 
 func _ready():
 	velocityV2.x = speed
@@ -54,9 +57,10 @@ func take_damage(damage):
 		expl.position = position
 		sprite.visible = false
 		health_bar.visible = false
+		collision_shape.scale = Vector2(0,0)
 		expl.play()
 		death_timer.start()
+		emit_signal("enemy_dead")
 		
 func _on_death_timer_timeout():
 	queue_free()
-	get_tree().reload_current_scene()
