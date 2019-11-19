@@ -19,6 +19,10 @@ config/name="InvadersOfSpace"
 run/main_scene="res://scenes/TitleScreen.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/resizable=false
+
 [input]
 
 z_key={

@@ -15,7 +15,7 @@ script = ExtResource( 1 )
 [node name="Invader1" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 89.9105, 380.242 )
 shoot_key = "z_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader1B")
+backupInvaderPath = NodePath("../Invader1B")
 
 [node name="Invader1B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 89.9105, 513.415 )
@@ -25,7 +25,7 @@ active = false
 [node name="Invader2" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 227.417, 379.014 )
 shoot_key = "x_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader2B")
+backupInvaderPath = NodePath("../Invader2B")
 
 [node name="Invader2B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 227.417, 512.187 )
@@ -35,7 +35,7 @@ active = false
 [node name="Invader3" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 358.786, 383.925 )
 shoot_key = "c_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader3B")
+backupInvaderPath = NodePath("../Invader3B")
 
 [node name="Invader3B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 358.786, 517.098 )
@@ -45,7 +45,7 @@ active = false
 [node name="Invader4" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 489.925, 385.153 )
 shoot_key = "v_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader4B")
+backupInvaderPath = NodePath("../Invader4B")
 
 [node name="Invader4B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 491.153, 519.554 )
@@ -55,7 +55,7 @@ active = false
 [node name="Invader5" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 615.382, 390.064 )
 shoot_key = "b_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader5B")
+backupInvaderPath = NodePath("../Invader5B")
 
 [node name="Invader5B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 615.382, 524.237 )
@@ -65,7 +65,7 @@ active = false
 [node name="Invader6" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 745.523, 390.064 )
 shoot_key = "n_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader6B")
+backupInvaderPath = NodePath("../Invader6B")
 
 [node name="Invader6B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 745.523, 523.237 )
@@ -75,7 +75,7 @@ active = false
 [node name="Invader7" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 901.445, 387.608 )
 shoot_key = "m_key"
-backupInvaderPath = NodePath("../InvaderContainer/Invader7B")
+backupInvaderPath = NodePath("../Invader7B")
 
 [node name="Invader7B" parent="InvaderContainer" instance=ExtResource( 2 )]
 position = Vector2( 901.445, 520.781 )
@@ -86,6 +86,7 @@ active = false
 position = Vector2( 478.545, 74.6918 )
 
 [node name="Interface" type="Node" parent="."]
+pause_mode = 2
 script = ExtResource( 4 )
 
 [node name="Victory label" type="Label" parent="Interface"]
@@ -96,6 +97,16 @@ margin_right = 643.715
 margin_bottom = 174.173
 custom_fonts/font = ExtResource( 5 )
 text = "Victory!"
+
+[node name="Paused label" type="Label" parent="Interface"]
+visible = false
+margin_left = 346.715
+margin_top = 129.173
+margin_right = 643.715
+margin_bottom = 174.173
+custom_fonts/font = ExtResource( 5 )
+text = "Paused
+"
 
 [node name="Defeat label" type="Label" parent="Interface"]
 visible = false

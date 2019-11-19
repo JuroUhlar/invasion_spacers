@@ -29,7 +29,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-health = 20
 bullet = ExtResource( 2 )
 explosion = ExtResource( 3 )
 
@@ -47,7 +46,6 @@ position = Vector2( 0, 60 )
 [node name="bullet_container" type="Node" parent="."]
 
 [node name="gun_timer" type="Timer" parent="."]
-wait_time = 0.15
 one_shot = true
 
 [node name="health_bar" type="ProgressBar" parent="."]
