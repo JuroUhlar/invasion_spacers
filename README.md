@@ -1,13 +1,11 @@
 # Invasion spacers
 
-Gamme prototype for a Digital games course at the University of Porto. It's space invaders, but you control the invaders.
+Game prototype for a Digital games course at the University of Porto. It's space invaders, but you control the invaders.
 Developed with the Godot engine.
 
+Use the bottom row of your keyboard to shoot (keys z,x,c,v,b,n,m). The game gets progressively harder as you go through the levels.
 
-
-* Use the bottom row of your keyboard to shoot (keys z,x,c,v,b,n,m)
-* The game gets progressively harder as you go through the levels
-* Which level were you able to reach?
+![Screenshot](https://raw.githubusercontent.com/JuroUhlar/invasion_spacers/master/screenshot.png)
 
 * gameplay video: https://www.youtube.com/watch?v=cOEzCaGCYU4
 * compiled build: https://www.filehosting.org/file/details/833723/InvasionSpacers.zip (or compile the source code yourself using Godot >3.1)
