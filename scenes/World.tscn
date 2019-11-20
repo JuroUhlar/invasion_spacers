@@ -1,13 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/InvaderContainer.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Invader.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scenes/Enemy.tscn" type="PackedScene" id=3]
-[ext_resource path="res://scenes/Interface.gd" type="Script" id=4]
-[ext_resource path="res://assets/Fonts/TitleFont.tres" type="DynamicFont" id=5]
-[ext_resource path="res://scenes/Buttons.tscn" type="PackedScene" id=6]
-[ext_resource path="res://assets/Sounds/NFF-success.wav" type="AudioStream" id=7]
-[ext_resource path="res://assets/Sounds/NFF-wrong.wav" type="AudioStream" id=8]
+[ext_resource path="res://scripts/Interface.gd" type="Script" id=4]
+[ext_resource path="res://scenes/labels/Label.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/labels/LevelLabel.tscn" type="PackedScene" id=6]
+[ext_resource path="res://assets/Fonts/TitleFont.tres" type="DynamicFont" id=7]
+[ext_resource path="res://scenes/labels/RestartButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/labels/NextLevelButton.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scenes/labels/MainMenuButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://assets/Sounds/NFF-success.wav" type="AudioStream" id=11]
+[ext_resource path="res://assets/Sounds/NFF-wrong.wav" type="AudioStream" id=12]
 
 [node name="World" type="Node2D"]
 
@@ -91,24 +95,42 @@ position = Vector2( 478.545, 74.6918 )
 pause_mode = 2
 script = ExtResource( 4 )
 
-[node name="Victory label" type="Label" parent="Interface"]
-visible = false
-margin_left = 346.715
-margin_top = 129.173
-margin_right = 643.715
-margin_bottom = 174.173
-custom_fonts/font = ExtResource( 5 )
-text = "Victory!"
+[node name="Victory label" parent="Interface" instance=ExtResource( 5 )]
+
+[node name="Level Label" parent="Interface" instance=ExtResource( 6 )]
+margin_left = 394.183
+margin_top = 123.899
+margin_right = 691.183
+margin_bottom = 168.899
+align = 1
 
 [node name="Paused label" type="Label" parent="Interface"]
 visible = false
-margin_left = 355.307
-margin_top = 56.1423
-margin_right = 652.307
-margin_bottom = 149.142
-custom_fonts/font = ExtResource( 5 )
+margin_left = 371.13
+margin_top = 93.0621
+margin_right = 668.13
+margin_bottom = 186.062
+custom_fonts/font = ExtResource( 7 )
 text = "Paused
 "
+align = 1
+
+[node name="RestartButton" parent="Interface" instance=ExtResource( 8 )]
+visible = false
+margin_left = 341.069
+margin_top = 214.487
+margin_right = 641.069
+margin_bottom = 274.487
+
+[node name="NextLevelButton" parent="Interface" instance=ExtResource( 9 )]
+visible = false
+margin_left = 344.585
+margin_top = 212.729
+margin_right = 644.585
+margin_bottom = 272.729
+
+[node name="MainMenuButton" parent="Interface" instance=ExtResource( 10 )]
+visible = false
 
 [node name="Defeat label" type="Label" parent="Interface"]
 visible = false
@@ -116,22 +138,15 @@ margin_left = 332.396
 margin_top = 129.173
 margin_right = 674.396
 margin_bottom = 174.173
-custom_fonts/font = ExtResource( 5 )
+custom_fonts/font = ExtResource( 7 )
 text = "Defeat :("
 
-[node name="Buttons" parent="Interface" instance=ExtResource( 6 )]
-visible = false
-margin_left = 332.935
-margin_top = 207.636
-margin_right = 632.935
-margin_bottom = 342.636
-
 [node name="VictorySound" type="AudioStreamPlayer2D" parent="Interface"]
-stream = ExtResource( 7 )
+stream = ExtResource( 11 )
 pitch_scale = 0.5
 
 [node name="DefeatSound" type="AudioStreamPlayer2D" parent="Interface"]
-stream = ExtResource( 8 )
+stream = ExtResource( 12 )
 pitch_scale = 0.5
 [connection signal="all_invaders_dead" from="InvaderContainer" to="Interface" method="_on_InvaderContainer_all_invaders_dead"]
 [connection signal="enemy_dead" from="Enemy" to="Interface" method="_on_Enemy_enemy_dead"]

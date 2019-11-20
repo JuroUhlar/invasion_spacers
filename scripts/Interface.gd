@@ -3,7 +3,12 @@ extends Node
 onready var victory_label = get_node("Victory label")
 onready var defeat_label = get_node("Defeat label")
 onready var paused_label = get_node("Paused label")
-onready var buttons = get_node("Buttons")
+
+onready var restart_button = get_node("RestartButton")
+onready var next_level_button = get_node("NextLevelButton")
+onready var main_menu_button = get_node("MainMenuButton")
+
+
 onready var victory_sound = get_node("VictorySound")
 onready var defeat_sound = get_node("DefeatSound")
 
@@ -12,12 +17,14 @@ var paused = false;
 
 func _on_Enemy_enemy_dead():
 	victory_label.visible = true
-	buttons.visible = true
+	next_level_button.visible = true
+	main_menu_button.visible = true
 	victory_sound.play()
 
 func _on_InvaderContainer_all_invaders_dead():
 	defeat_label.visible = true
-	buttons.visible = true
+	restart_button.visible = true
+	main_menu_button.visible = true
 	defeat_sound.play()
 	
 func _process(delta):

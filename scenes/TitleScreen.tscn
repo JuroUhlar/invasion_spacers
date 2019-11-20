@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/Fonts/TitleFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://assets/Fonts/NormalFont.tres" type="DynamicFont" id=2]
-[ext_resource path="res://scenes/Buttons.tscn" type="PackedScene" id=3]
+[ext_resource path="res://scenes/labels/Buttons.tscn" type="PackedScene" id=3]
 
 [node name="TitleScreen" type="Control"]
 anchor_right = 1.0
