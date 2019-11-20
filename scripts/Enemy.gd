@@ -33,7 +33,7 @@ func _ready():
 	set_difficulty(Global.level)
 	
 func set_difficulty(level):
-	print("Level: ", level)
+	print("\n Level: ", level)
 	
 	gun_timer.wait_time = 1.5
 	gun_timer.wait_time = clamp(gun_timer.wait_time - (0.15 * level) , 0.3, 2)

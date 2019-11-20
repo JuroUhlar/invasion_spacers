@@ -107,10 +107,10 @@ align = 1
 
 [node name="Paused label" type="Label" parent="Interface"]
 visible = false
-margin_left = 371.13
-margin_top = 93.0621
-margin_right = 668.13
-margin_bottom = 186.062
+margin_left = 370.315
+margin_top = 75.9575
+margin_right = 667.315
+margin_bottom = 168.957
 custom_fonts/font = ExtResource( 7 )
 text = "Paused
 "
