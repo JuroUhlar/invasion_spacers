@@ -5,6 +5,9 @@ onready var checking = true
 
 signal all_invaders_dead
 
+func _ready():
+	print(self.get_path())
+
 func _process(delta):
 	if (checking):	
 		if (get_child_count() == 0):

@@ -47,6 +47,9 @@ func set_difficulty(level):
 	targeting_limit = clamp(targeting_limit + (0.3 * level), 0, 3)
 	print("Targeting limit: ", targeting_limit)
 	
+	speed *= 7 * level
+	print("Speed: ", speed)
+	
 
 func shoot():
 	gun_timer.start()

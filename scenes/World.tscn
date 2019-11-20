@@ -17,6 +17,7 @@
 [node name="World" type="Node2D"]
 
 [node name="InvaderContainer" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Invader1" parent="InvaderContainer" instance=ExtResource( 2 )]
@@ -94,6 +95,7 @@ position = Vector2( 478.545, 74.6918 )
 
 [node name="Interface" type="Node" parent="."]
 pause_mode = 2
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Victory label" parent="Interface" instance=ExtResource( 5 )]
@@ -151,5 +153,11 @@ pitch_scale = 0.5
 [node name="DefeatSound" type="AudioStreamPlayer2D" parent="Interface"]
 stream = ExtResource( 13 )
 pitch_scale = 0.5
+
+[node name="gun_timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[node name="bullet_container" type="Node" parent="."]
 [connection signal="all_invaders_dead" from="InvaderContainer" to="Interface" method="_on_InvaderContainer_all_invaders_dead"]
 [connection signal="enemy_dead" from="Enemy" to="Interface" method="_on_Enemy_enemy_dead"]

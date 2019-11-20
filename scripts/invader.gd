@@ -7,8 +7,8 @@ export (String) var shoot_key
 export (bool) var active = true
 export (NodePath) var backupInvaderPath
 
-onready var bullet_container = get_node("bullet_container")
-onready var gun_timer = get_node("gun_timer")
+onready var bullet_container = get_node("/root/World/bullet_container")
+onready var gun_timer = get_parent().get_parent().get_node("gun_timer")
 onready var tweenNode = get_node("Tween")
 
 var tweenValues
@@ -21,6 +21,7 @@ func _ready():
 	start_tween()
 	
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if Input.is_action_pressed(shoot_key):
 		if gun_timer.time_left == 0:
@@ -57,6 +58,8 @@ func die():
 			backup.activate()
 	queue_free()
 
+# warning-ignore:unused_argument
+# warning-ignore:unused_argument
 func _on_Tween_tween_completed(object, key):
 	tweenValues.invert()
 	start_tween()

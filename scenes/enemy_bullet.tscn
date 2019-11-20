@@ -35,7 +35,7 @@ position = Vector2( 0, -8.67 )
 rotation = 4.71239
 scale = Vector2( 0.96, 1.77 )
 frames = ExtResource( 4 )
-frame = 7
+frame = 4
 playing = true
 [connection signal="area_entered" from="." to="." method="_on_player_bullet_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_player_bullet_body_entered"]
