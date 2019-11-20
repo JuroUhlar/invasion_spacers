@@ -1,6 +1,5 @@
 extends Node
 
-onready var invaderCount = get_child_count()
 onready var checking = true
 
 signal all_invaders_dead

@@ -24,6 +24,7 @@ onready var collision_shape = get_node("CollisionShape2D")
 var movement_switch_chance
 var invadersLeft
 var targeting_limit
+var targetPosition = null
 
 func _ready():
 	velocityV2.x = speed
@@ -44,10 +45,10 @@ func set_difficulty(level):
 	print("Movement switch chance: ", movement_switch_chance)
 	
 	targeting_limit = 1
-	targeting_limit = clamp(targeting_limit + (0.3 * level), 0, 3)
+	targeting_limit = clamp(targeting_limit + (0.3 * level), 0, 1)
 	print("Targeting limit: ", targeting_limit)
 	
-	speed *= 7 * level
+	speed += 7 * level
 	print("Speed: ", speed)
 	
 
@@ -56,10 +57,12 @@ func shoot():
 	var b = bullet.instance()
 	bullet_container.add_child(b)
 	
-	var targetPosition = null
 	if (invadersLeft <= targeting_limit): 
-		targetPosition = get_parent().get_node("InvaderContainer").get_children()[rand_range(0, invadersLeft-1)].position
-	b.start_at(get_node("muzzle").global_position, targetPosition)
+		targetPosition = get_target_position()
+		b.start_at(get_node("muzzle").global_position, targetPosition)
+	else:
+		b.start_at(get_node("muzzle").global_position)
+	
 
 func _physics_process(delta):
 	if death_timer.is_stopped():
@@ -69,7 +72,11 @@ func _physics_process(delta):
 			if gun_timer.time_left == 0:
 				shoot()
 			if movement_timer.time_left == 0:
-				chance_switch(movement_switch_chance)
+				movement_timer.start()
+				if invadersLeft > 6: 
+					chance_switch(movement_switch_chance)
+				else:
+					targeted_switch()
 	
 	if position.x > screen_size.x - movement_margin:
 		switch_direction()
@@ -79,11 +86,17 @@ func _physics_process(delta):
 func switch_direction():
 	velocityV2.x *= -1
 	
-	
 func chance_switch(chance):
-	movement_timer.start()
 	var x = rand_range(0,1)
-	if x <= chance: switch_direction()		
+	if x <= chance: switch_direction()
+
+func targeted_switch():
+	targetPosition = get_target_position()
+	if (targetPosition.x - position.x > 0 && velocityV2.x < 0): switch_direction()
+	if (targetPosition.x - position.x < 0 && velocityV2.x > 0): switch_direction()
+	
+func get_target_position():
+	return get_parent().get_node("InvaderContainer").get_children()[rand_range(0, invadersLeft-1)].position
 				
 func _on_Enemy_area_entered(area):
 	if area.get_groups().has("player_bullets"):
@@ -101,8 +114,7 @@ func take_damage(damage):
 		collision_shape.scale = Vector2(0,0)
 		expl.play()
 		death_timer.start()
-		if invadersLeft > 0:
-			emit_signal("enemy_dead")
+		emit_signal("enemy_dead")
 		
 func _on_death_timer_timeout():
 	queue_free()

@@ -1,6 +1,6 @@
 extends Node
 
-var level = 7
+var level = 1
 
 func _ready():
 	pass 

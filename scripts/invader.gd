@@ -23,7 +23,7 @@ func _ready():
 
 # warning-ignore:unused_argument
 func _process(delta):
-	if Input.is_action_pressed(shoot_key):
+	if Input.is_action_just_pressed(shoot_key):
 		if gun_timer.time_left == 0:
 			shoot()
 

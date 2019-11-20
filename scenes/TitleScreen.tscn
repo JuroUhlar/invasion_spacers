@@ -23,17 +23,17 @@ custom_constants/separation = 60
 alignment = 1
 
 [node name="Title" type="Label" parent="Menu"]
-margin_top = 47.0
+margin_top = 10.0
 margin_right = 901.0
-margin_bottom = 92.0
+margin_bottom = 55.0
 custom_fonts/font = ExtResource( 1 )
 text = "Invasion Spacers"
 align = 1
 
 [node name="Description" type="Label" parent="Menu"]
-margin_top = 152.0
+margin_top = 115.0
 margin_right = 901.0
-margin_bottom = 245.0
+margin_bottom = 208.0
 custom_fonts/font = ExtResource( 2 )
 text = "So it's space invaders, but you control the invaders.
 
@@ -42,12 +42,19 @@ USe the bottom row of your keyboard
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu"]
-margin_top = 305.0
+margin_top = 268.0
 margin_right = 901.0
-margin_bottom = 440.0
+margin_bottom = 403.0
 alignment = 1
 
 [node name="Buttons" parent="Menu/HBoxContainer" instance=ExtResource( 3 )]
+
+[node name="Label" type="Label" parent="Menu"]
+margin_top = 463.0
+margin_right = 901.0
+margin_bottom = 477.0
+text = "Juraj Uhlar, U.Porto, 2019"
+align = 1
 
 [node name="InvaderB_012x" type="Sprite" parent="."]
 modulate = Color( 0.564706, 0.564706, 0.564706, 1 )

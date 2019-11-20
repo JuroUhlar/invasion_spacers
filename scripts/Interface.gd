@@ -8,25 +8,28 @@ onready var restart_button = get_node("RestartButton")
 onready var next_level_button = get_node("NextLevelButton")
 onready var main_menu_button = get_node("MainMenuButton")
 
-
 onready var victory_sound = get_node("VictorySound")
 onready var defeat_sound = get_node("DefeatSound")
 
-
 var paused = false;
+var game_over = false;
 
 func _on_Enemy_enemy_dead():
-	victory_label.visible = true
-	next_level_button.visible = true
-	main_menu_button.visible = true
-	victory_sound.play()
+	if (!game_over):
+		game_over = true
+		victory_label.visible = true
+		next_level_button.visible = true
+		main_menu_button.visible = true
+		victory_sound.play()
 
 func _on_InvaderContainer_all_invaders_dead():
-	defeat_label.visible = true
-	restart_button.visible = true
-	main_menu_button.visible = true
-	defeat_sound.play()
-	
+	if (!game_over):
+		game_over = true
+		defeat_label.visible = true
+		restart_button.visible = true
+		main_menu_button.visible = true
+		defeat_sound.play()
+		
 func _process(delta):
 	if Input.is_action_just_released("ui_cancel"):
 		if(!paused):
