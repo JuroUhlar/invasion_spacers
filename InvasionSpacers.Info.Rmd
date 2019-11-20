@@ -1,0 +1,39 @@
+---
+title: "InvasionSpacers"
+author: "Juraj Uhlar"
+date: "11/20/2019"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Invasion spacers
+
+So it's space invaders, but you control the invaders.
+
+## Author
+
+* Juraj Uhlár
+* 201902738
+* up201902738@fep.up.pt
+* juro.uhlar@gmail.com
+
+## How to play
+
+* Press Start
+* Use the bottom row of your keyboard to shoot (keys z,x,c,v,b,n,m)
+* The game gets progressively harder as you go through the levels
+* Which level were you able to reach?
+
+## Video
+
+* https://www.youtube.com/watch?v=cOEzCaGCYU4
+
+## Github
+
+* https://github.com/JuroUhlar/invasion_spacers
+
+
+
