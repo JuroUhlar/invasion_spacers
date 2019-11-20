@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://scripts/InvaderContainer.gd" type="Script" id=1]
 [ext_resource path="res://scenes/Invader.tscn" type="PackedScene" id=2]
@@ -10,8 +10,9 @@
 [ext_resource path="res://scenes/labels/RestartButton.tscn" type="PackedScene" id=8]
 [ext_resource path="res://scenes/labels/NextLevelButton.tscn" type="PackedScene" id=9]
 [ext_resource path="res://scenes/labels/MainMenuButton.tscn" type="PackedScene" id=10]
-[ext_resource path="res://assets/Sounds/NFF-success.wav" type="AudioStream" id=11]
-[ext_resource path="res://assets/Sounds/NFF-wrong.wav" type="AudioStream" id=12]
+[ext_resource path="res://scripts/Defeatlabel.gd" type="Script" id=11]
+[ext_resource path="res://assets/Sounds/NFF-success.wav" type="AudioStream" id=12]
+[ext_resource path="res://assets/Sounds/NFF-wrong.wav" type="AudioStream" id=13]
 
 [node name="World" type="Node2D"]
 
@@ -134,19 +135,21 @@ visible = false
 
 [node name="Defeat label" type="Label" parent="Interface"]
 visible = false
-margin_left = 332.396
-margin_top = 129.173
-margin_right = 674.396
-margin_bottom = 174.173
+margin_left = 140.773
+margin_top = 97.3544
+margin_right = 805.773
+margin_bottom = 142.354
 custom_fonts/font = ExtResource( 7 )
 text = "Defeat :("
+align = 1
+script = ExtResource( 11 )
 
 [node name="VictorySound" type="AudioStreamPlayer2D" parent="Interface"]
-stream = ExtResource( 11 )
+stream = ExtResource( 12 )
 pitch_scale = 0.5
 
 [node name="DefeatSound" type="AudioStreamPlayer2D" parent="Interface"]
-stream = ExtResource( 12 )
+stream = ExtResource( 13 )
 pitch_scale = 0.5
 [connection signal="all_invaders_dead" from="InvaderContainer" to="Interface" method="_on_InvaderContainer_all_invaders_dead"]
 [connection signal="enemy_dead" from="Enemy" to="Interface" method="_on_Enemy_enemy_dead"]

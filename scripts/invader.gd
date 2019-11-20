@@ -16,7 +16,7 @@ signal invader_dead
 
 func _ready():
 	add_to_group("invaders")
-	
+
 	tweenValues = [position, position + Vector2(60,0)]
 	start_tween()
 	
@@ -31,7 +31,7 @@ func shoot():
 		gun_timer.start()
 		var b = bullet.instance()
 		bullet_container.add_child(b)
-		b.start_at(get_node("muzzle").global_position)
+		b.start_at(get_node("muzzle").global_position, int(self.name[7]))
 		
 func start_tween():
 	tweenNode.interpolate_property(self, "position", tweenValues[0], tweenValues[1], 2.0, Tween.TRANS_LINEAR, Tween.EASE_OUT, 0)

@@ -24,7 +24,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
 [node name="Enemy" type="Area2D"]
-position = Vector2( 177.562, 74.9345 )
+position = Vector2( 177.562, 108.489 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
@@ -46,6 +46,9 @@ position = Vector2( 0, 60 )
 [node name="bullet_container" type="Node" parent="."]
 
 [node name="gun_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="movement_timer" type="Timer" parent="."]
 one_shot = true
 
 [node name="health_bar" type="ProgressBar" parent="."]

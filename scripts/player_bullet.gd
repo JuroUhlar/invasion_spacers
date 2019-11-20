@@ -1,8 +1,10 @@
 extends Area2D
 
 var velocityV2 = Vector2()
-export var speed = 400
+export var speed = 450
 export (PackedScene) var explosion
+
+onready var sound_player = get_node("AudioStreamPlayer2D")
 
 func _ready():
 	velocityV2.y = -speed
@@ -12,9 +14,11 @@ func _ready():
 func _physics_process(delta):
 	position = position + velocityV2 * delta
 
-func start_at(pos):
+func start_at(pos, invaderN):
 	position = pos
 	velocityV2.y = -speed
+	sound_player.pitch_scale = 0.3 * invaderN
+	sound_player.play()
 
 func _on_lifetime_timeout():
 	queue_free()

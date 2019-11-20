@@ -13,12 +13,16 @@ func _ready():
 func _physics_process(delta):
 	position = position + velocityV2 * delta
 
-func start_at(pos):
+func start_at(pos, targetPos = null):
 	position = pos
-	velocityV2.y = speed
-
-
-
+	
+	if (targetPos): 
+		velocityV2 = (targetPos - position).normalized() * speed
+		self.look_at(targetPos)
+		rotation -= deg2rad(90)
+	else:
+		velocityV2.y = speed
+		
 
 func _on_lifetime_timeout():
 	queue_free()
