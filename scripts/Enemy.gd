@@ -34,9 +34,12 @@ func shoot():
 	
 
 func _physics_process(delta):
+	
+	
 	if death_timer.is_stopped():
 		position = position + velocityV2 * delta
-		if gun_timer.time_left == 0:
+		var invadersLeft = get_parent().get_node("InvaderContainer").get_child_count()
+		if invadersLeft > 0 && gun_timer.time_left == 0:
 			shoot()
 	
 	if position.x > screen_size.x - movement_margin:
